@@ -1,7 +1,7 @@
 Rails Notifier
 ==============
 
-A simple library to send notifications from your Rails application. 
+A simple library to send notifications from your Rails application. Currently supports sending of notifications via email and TerminalNotifier.
 
 ## Setup
 
@@ -14,13 +14,33 @@ Set the email address where notifications will be sent to. Place it in an initia
 
 	# config/intializers/notifier.rb
 	Notifier::Configuration.setup do |config|
-		config.admin_email = 'your_email_address@gmail.com'
-	end
+		config.admin_email = 'send_notifications_here@gmail.com'
+		config.from_address = 'notifications@your_app.com'
 
+
+		if Rails.env == 'production'
+			config.notify_via = :email
+		elsif Rails.env == 'development'
+			config.notify_via = :terminal_notifier
+		end
+	end
 
 Send notifications from your app by calling:
 
 	Notifier.notify('Someone registered for your application')
+
+
+Make sure that ActionMailer is set up
+    # config/application.rb or other environment config files
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gurusignals.com',
+      user_name:            'notifications',
+      password:             '77%7K&m82',
+      authentication:       'plain',
+      enable_starttls_auto: true
+     }
 
 
 Thats all it does. A very simple library
@@ -28,7 +48,6 @@ Thats all it does. A very simple library
 ## Future Plans
 
 * SMS Notifications
-* Apple Notifications (via terminal_notifier or Growl)
 * Ability to send notifications to a group
 * Message levels
 * More configuration options
