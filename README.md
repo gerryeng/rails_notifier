@@ -27,6 +27,8 @@ Thats all it does. A very simple library
 
 ## Future Plans
 
-* SMS Notification
-* Group Notifications
+* SMS Notifications
+* Apple Notifications (via terminal_notifier or Growl)
+* Ability to send notifications to a group
+* Message levels
 * More configuration options
