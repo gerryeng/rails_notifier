@@ -7,9 +7,9 @@ module Notifier
 				via = ::Notifier::Configuration.notify_via
 
 				if via == :terminal_notifier
-					notify_via_terminal_notifier(message)
+					notify_via_terminal_notifier(message, subject)
 				elsif via == :email
-					notify_via_email(message)
+					notify_via_email(message, subject)
 				end
 
 			end

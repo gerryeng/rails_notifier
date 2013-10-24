@@ -1,7 +1,7 @@
 module Notifier
 
-	def notify(message)
-		Notifier.notify(message)
+	def notify(message, subject = "")
+		Notifier.notify(message, subject)
 	end
 
 	module_function :notify
