@@ -1,8 +1,7 @@
 class Notifier::NotificationMailer < ActionMailer::Base
-	default from: "notifications@gurusignals.com"
-
-	def notification(email_address, subject, message)
+	def notification(email_address, message, subject="")
 		@message = message
-		mail to: email_address, subject: subject
+		from = Notifier::Configuration.from_address
+		mail from: from, to: email_address, subject: subject
 	end
 end

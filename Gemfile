@@ -13,3 +13,10 @@ gemspec
 # To use debugger
 # gem 'debugger'
 gem 'haml-rails'
+gem 'sqlite3'
+
+
+group :test do
+	gem 'terminal-notifier'
+	gem 'rspec-rails'
+end
