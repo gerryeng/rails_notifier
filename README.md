@@ -36,9 +36,9 @@ Make sure that ActionMailer is set up
     config.action_mailer.smtp_settings = {
       address:              'smtp.gmail.com',
       port:                 587,
-      domain:               'gurusignals.com',
-      user_name:            'notifications',
-      password:             '77%7K&m82',
+      domain:               'your_domain.com',
+      user_name:            'your_user_name@your_domain.com',
+      password:             'your_password',
       authentication:       'plain',
       enable_starttls_auto: true
      }
