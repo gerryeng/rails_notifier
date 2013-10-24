@@ -31,6 +31,7 @@ Send notifications from your app by calling:
 
 
 Make sure that ActionMailer is set up
+
     # config/application.rb or other environment config files
     config.action_mailer.smtp_settings = {
       address:              'smtp.gmail.com',
