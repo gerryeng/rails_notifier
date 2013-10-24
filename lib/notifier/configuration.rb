@@ -5,14 +5,14 @@ module Notifier
 
 		class << self
 
-			attr_accessor :admin_email, :notify_via
+			attr_accessor :admin_email, :notify_via, :from_address
 
 			def setup
 
 				# Defaults
 				@notify_via = :terminal_notifier
 
-				yield self
+			yield self
 			end
 
 		end
