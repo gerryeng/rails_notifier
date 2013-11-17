@@ -10,7 +10,8 @@ Add to your Gemfile:
 	gem 'notifier', github: 'gerryeng/rails_notifier'
 
 	# OSX
-	# If you wish to receive notifications from OSX User Notifications, useful during development
+	# If you want notifications to be sent using OSX User Notifications, instal this gem
+	# (Useful for debugging during development)
 	gem install terminal-notifier, group: :development
 
 
