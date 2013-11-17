@@ -7,7 +7,7 @@ A simple library to send notifications from your Rails application. Currently su
 
 Add to your Gemfile:
 
-	gem 'rails_notifier', github: 'gerryeng/rails_notifier'
+	gem 'notifier', github: 'gerryeng/rails_notifier'
 
 
 Set the email address where notifications will be sent to. Place it in an initializer
@@ -51,4 +51,5 @@ Thats all it does. A very simple library
 * SMS Notifications
 * Ability to send notifications to a group
 * Message levels
+* Send notifications asynchronously via Sidekiq
 * More configuration options
