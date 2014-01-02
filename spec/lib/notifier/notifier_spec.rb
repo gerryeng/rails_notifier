@@ -57,8 +57,8 @@ module Notifier
 			end
 
 			it 'should call send message worker' do 
-				Sidekiq::Testing.fake!
-				Notifier::SendMessageWorker.should_receive(:perform_async)
+				Sidekiq::Testing.inline!
+				Notifier::SendMessageWorker.should_receive(:perform_async).and_call_original
 				Notifier.notify 'Hello', 'subject'
 			end
 		end
