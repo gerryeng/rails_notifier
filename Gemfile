@@ -14,7 +14,7 @@ gemspec
 # gem 'debugger'
 gem 'haml-rails'
 gem 'sqlite3'
-
+gem 'sidekiq'
 
 group :test do
 	gem 'terminal-notifier'

@@ -1,9 +1,14 @@
 require 'spec_helper'
+require 'sidekiq/testing'
 
 module Notifier
 	describe Notifier do
 
-		describe '#notify' do 
+		before do 
+			Configuration.async = false
+		end
+
+		describe '#notify' do
 			context 'via email' do 
 
 				before do
@@ -43,6 +48,18 @@ module Notifier
 				nil.should_receive(:deliver)
 				NotificationMailer.should_receive(:notification).with(nil, 'Hello World', "Subject")
 				Notifier.send :notify_via_email, 'Hello World', 'Subject'
+			end
+		end
+
+		context 'Async Notifications' do 
+			before do 
+				Configuration.async = true
+			end
+
+			it 'should call send message worker' do 
+				Sidekiq::Testing.fake!
+				Notifier::SendMessageWorker.should_receive(:perform_async)
+				Notifier.notify 'Hello', 'subject'
 			end
 		end
 
