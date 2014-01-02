@@ -22,6 +22,9 @@ Set the email address where notifications will be sent to. Place it in an initia
 		config.admin_email = 'send_notifications_here@gmail.com'
 		config.from_address = 'notifications@your_app.com'
 
+		# If you have sidekiq installed, you may send notifications asynchronously
+		config.async = false
+
 
 		if Rails.env == 'production'
 			config.notify_via = :email
