@@ -57,7 +57,6 @@ Thats all it does. A very simple library
 ## Future Plans
 
 * SMS Notifications
-* Ability to send notifications to a group
 * Message levels
 * Send notifications asynchronously via Sidekiq
 * More configuration options
