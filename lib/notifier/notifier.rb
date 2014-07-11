@@ -12,7 +12,7 @@ module Notifier
 			end
 
 			def send_message(message, subject = "")
-				via = config.notify_via
+				via = config.notify_via.to_sym
 
 				if via == :terminal_notifier
 					notify_via_terminal_notifier(message, subject)
